@@ -124,7 +124,8 @@ export default function shave(target: string | NodeList, maxHeight: number, opts
     }
 
     el[textProp] = spaces ? ((words.slice(0, max) as string[]).join(' ') as string) : (words as string).slice(0, max)
-    el.insertAdjacentElement('beforeend', shavedTextEl)
+    let clone = shavedTextEl.cloneNode(true);
+    el.insertAdjacentElement('beforeend', clone)
     const diff: string = spaces
       ? ` ${(words.slice(max) as string[]).join(' ') as string}`
       : (words as string).slice(max)
