@@ -145,7 +145,8 @@ function shave(target, maxHeight, opts) {
             }
         }
         el[textProp] = spaces ? words.slice(0, max).join(' ') : words.slice(0, max);
-        el.insertAdjacentElement('beforeend', shavedTextEl);
+      var clone = shavedTextEl.cloneNode(true);
+        el.insertAdjacentElement('beforeend', clone);
         var diff = spaces
             ? " " + words.slice(max).join(' ')
             : words.slice(max);
